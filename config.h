@@ -61,15 +61,17 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "uxterm", NULL };
 static const char *lockcmd[]  = { "xlock", NULL };
 static const char *pcmanfm[]  = { "pcmanfm", NULL };
+static const char *launcher[] = { "rofi", "-show", "drun", NULL };
 
 #include "selfrestart.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ SUPKEY,                       XK_r,      spawn,          {.v = termcmd } },
 	{ SUPKEY,                       XK_l,      spawn,          {.v = lockcmd } },
 	{ SUPKEY,                       XK_e,      spawn,          {.v = pcmanfm } },
+	{ SUPKEY,                       XK_Return, spawn,          {.v = dmenucmd } },
+	{ SUPKEY,                       XK_space,  spawn,          {.v = launcher } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
